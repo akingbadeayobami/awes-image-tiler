@@ -15,18 +15,28 @@
 		.row-class{
 
 		}
+    img{
+      margin: 4px;
+    }
 		body{
 			background-color: #9d2e81;
 		}
+    .wrapper{
+      margin: 0 auto;
+      width: 900px;
+      border: 2px solid #fff;
+    }
 	</style>
 </head>
 <body>
+
+  <div class="wrapper">
 
 	<?php
 
 	 require_once "Sphider.php";
 
-	  foreach(range(1,25) as $index){
+	  foreach(range(1,37) as $index){
 
 			$images[] = $index . ".png";
 
@@ -34,16 +44,17 @@
 
 	 $images = implode(',', $images);
 
-	 $width = 500;
+	 $width = 700;
 
-	 $height = 700;
+	 $height = 70;
 
-	 $rows = 5;
+	 $minMargin = 4;
 
 	 $AwesPhotoTiler = new AwesPhotoTiler();
 
-	 $AwesPhotoTiler->setRows($rows)->setHeight($height)->setWidth($width)->setImages($images)->tile();
+	 $AwesPhotoTiler->setRowHeight($height)->setContainerWidth($width)->setImages($images)->setMinMargin($minMargin)->tile();
 
 ?>
+</div>
 </body>
 </html>
